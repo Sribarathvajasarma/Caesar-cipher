@@ -6,9 +6,11 @@ object Cipher {
     val cipher=(algo:(Char,Int,String)=> Char,s:String,key:Int,a:String)=> s.map(algo(_,key,a));  // Higher order function
     print("Enter the string that needs to be encrypted: ");
     var str= scala.io.StdIn.readLine();
-    val ct=cipher(E,str,5,alphabet);
+     print("Enter the key value: ");
+    var key = scala.io.StdIn.readInt();
+    val ct=cipher(E,str,key,alphabet);
     println("Encrypted String: "+ct);                           // Encrypted string
-    val pt=cipher(D,ct,5,alphabet);
+    val pt=cipher(D,ct,key,alphabet);
     println("Decrypted String: "+pt);                          // Decrypted string
 
 
